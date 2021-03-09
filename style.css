@@ -23,10 +23,19 @@
 }
 
 .player-container{
-    
+    position: relative;
 }
 
-.time-select    {
+.player-container svg{
+    position: absolute;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* .time-select    {
     background-color: lightblue;
 }
 
@@ -36,8 +45,52 @@
 
 .player-container   {
     background-color: lightcoral;
+} */
+
+.time-display   {
+    position: absolute;
+    bottom: 10%;
+    color:white;
+    font-size: 50px;
+
 }
 
-video{
-    display: none;
+video   {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    z-index: -10;
+}
+
+.time-select button, 
+.sound-picker button    {
+    color: white;
+    height: 30%;
+    height: 10%;
+    background: none;
+    border: 2px solid white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.time-select button:hover   {
+    color: black;
+    background:white;
+}
+
+.sound-picker button{
+    border: none;
+    height: 120px;
+    width: 120-px;
+    border-radius: 50%;
+}
+
+.sound-picker button:nth-child(1)   {
+    background:#4972a1;
+}
+
+.sound-picker button:nth-child(2)   {
+    background:#a14f49;
 }
