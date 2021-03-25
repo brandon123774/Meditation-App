@@ -85,6 +85,7 @@ video   {
     height: 120px;
     width: 120-px;
     border-radius: 50%;
+    padding: 30px;
 }
 
 .sound-picker button:nth-child(1)   {
@@ -93,4 +94,8 @@ video   {
 
 .sound-picker button:nth-child(2)   {
     background:#a14f49;
+}
+
+.sound-picker button img    {
+    height: 100%;
 }
