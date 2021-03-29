@@ -22,8 +22,34 @@ var app = () => {
 
     //Play Sound
     play.addEventListener('click', () =>    {
-        song.play();
+        checkPlaying(song);
     });
+
+    //Create a function to stop and play the sounds
+    var checkPlaying = song =>  {
+    if (song.paused) {
+        song.play();
+        video.play();
+        play.src = './svg/pause.svg'
+    } else   {
+        song.pause();
+        video.pause();
+        play.src = './svg/play.svg'
+    }
+
+    //Animate the circle for time
+    song.ontimeupdate = ()  =>  {
+        var currentTime = song.currentTime;
+        var elapsed = fakeDuration - currentTime;
+        var seconds = Math.floor(elapsed % 60);
+        var minutes = Math.floor(elapsed / 60);
+
+        //Progress bar animation
+        var progress = outlineLength - (currentTime / fakeDuration) * outlineLength;
+        outline.style.strokeDashoffset = progress;
+        
+
+    }
 };
 
 app();
