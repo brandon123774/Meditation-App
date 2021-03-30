@@ -3,23 +3,26 @@ var app = () => {
     var play = document.querySelector('.play');
     var outline = document.querySelector('.moving-outline circle');
     var video = document.querySelector('.vid-container video');
+    var replay = document.querySelector('.replay');
 
     //Sounds
     var sounds = document.querySelectorAll('.sound-picker button');
 
     //Time display
     var timeDisplay = document.querySelector('.time-display');
-    var timeSelect = document.querySelectorAll('.time-select button')
+    var outlineLength = outline.getTotalLength();
 
     //length of the outline 
-    var outlineLength = outline.getTotalLength();
-    console.log(outlineLength);
+    // var outlineLength = outline.getTotalLength();
+    // console.log(outlineLength);
 
     //Duration
     var fakeDuration = 600;
+    var timeSelect = document.querySelectorAll('.time-select button');
 
     outline.style.strokeDasharray = outlineLength;
     outline.style.strokeDashoffset = outlineLength;
+    timeDisplay.textContent = '${Math.floor(fakeDuration / 60)}:${Math.floor(fake Duration % 60)';
 
     //Pick different sounds
     sounds.forEach(sound => {
@@ -27,8 +30,15 @@ var app = () => {
             song.src = this.getAttribute('data=sound');
             video.src = this.getAttribute('data-video');
             checkPlaying(song);
-        })
-    })
+        });
+    });
+
+    //Replay
+    replay.addEventListener('click', function() {
+        var currentTime = song.currentTime;
+        song.currentTime = 0;
+        console.log('beep')
+    });
 
     //Play Sound
     play.addEventListener('click', () =>    {
